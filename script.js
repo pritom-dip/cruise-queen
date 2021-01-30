@@ -85,6 +85,13 @@ function showInvoiceToUser() {
     const invoiceTaxTotal = parseInt(handleAllCalcuation(invoiceSubTotalPrice, 0.1, false));
     const invoiceGrandTotal = handleAllCalcuation(invoiceSubTotalPrice, invoiceTaxTotal, true);
 
+    console.log(invoiceGrandTotal);
+    if (invoiceGrandTotal == 0) {
+        displayValueToUser("success-msg", "Please select first to get the booking invoice.");
+    } else {
+        displayValueToUser("success-msg", "Your booking has been successful.");
+    }
+
     displayValueToUser("invoice-subtotal", invoiceSubTotalPrice);
     displayValueToUser("invoice-tax", invoiceTaxTotal);
     displayValueToUser("invoice-grand-total", invoiceGrandTotal);
